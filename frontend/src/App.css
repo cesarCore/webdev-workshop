@@ -1,0 +1,256 @@
+/* ============================================================================
+   SHPE Study Session & Event Board — Stylesheet (Slide 12: CSS Variables, Flexbox & Grid)
+   ============================================================================ */
+
+:root {
+  --shpe-navy: #001f5b;
+  --shpe-blue: #005596;
+  --shpe-orange: #fd652f;
+  --bg-surface: #f4f7fb;
+  --card-bg: #ffffff;
+  --text-primary: #1a2433;
+  --text-muted: #5a6978;
+  --border-color: #dce4ee;
+  --radius: 12px;
+  --shadow: 0 4px 14px rgba(0, 31, 91, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Flexbox Header Layout (Slide 12) */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--shpe-navy), var(--shpe-blue));
+  color: #ffffff;
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.shpe-badge {
+  display: inline-block;
+  background-color: var(--shpe-orange);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+.app-header h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+}
+
+.app-header p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+.stats-pill {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+/* Form Styling with Flexbox Row (Slide 12) */
+.session-form {
+  background-color: var(--card-bg);
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  margin-bottom: 2.25rem;
+}
+
+.session-form h2 {
+  font-size: 1.25rem;
+  color: var(--shpe-navy);
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1 1 220px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--shpe-blue);
+}
+
+button[type="submit"] {
+  background-color: var(--shpe-orange);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive CSS Grid for Study Session Cards (Slide 12) */
+.section-heading {
+  margin-bottom: 1rem;
+}
+
+.section-heading h2 {
+  font-size: 1.35rem;
+  color: var(--shpe-navy);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.session-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.18s ease;
+}
+
+.session-card:hover {
+  transform: translateY(-3px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.category-badge {
+  background-color: #e6f0fa;
+  color: var(--shpe-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+.session-time {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--shpe-orange);
+}
+
+.session-card h3 {
+  font-size: 1.15rem;
+  color: var(--shpe-navy);
+  margin-bottom: 0.5rem;
+}
+
+.session-location {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.card-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.rsvp-btn {
+  background-color: var(--shpe-navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.rsvp-btn:hover {
+  background-color: var(--shpe-blue);
+}
+
+.error-banner {
+  background-color: #fff1f0;
+  border: 1px solid #ffa39e;
+  color: #cf1322;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.status-text {
+  color: var(--text-muted);
+  padding: 1rem 0;
+}
